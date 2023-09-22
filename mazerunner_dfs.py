@@ -21,3 +21,6 @@ def moveGen(current_state):
         neighbours.append(MazeState(current_state.maze, new_position))
 
     return neighbours
+
+def goalTest(current_state, goal_position):
+    return current_state.position == goal_position
