@@ -24,3 +24,7 @@ def moveGen(current_state):
 
 def goalTest(current_state, goal_position):
     return current_state.position == goal_position
+
+
+def depth_first_search(initial_state, goal_position):
+    stack = [(initial_state, [])]
