@@ -30,7 +30,7 @@ def main():
 
 
     start_position = (0,0)
-    goal_position = (0,19)
+    goal_position = (0,18)
 
     initial_state = MazeState(dfs_worst_case, start_position)
     start_time = time.time()
@@ -39,10 +39,21 @@ def main():
 
     print("DFS took", end_time - start_time, "seconds")
 
+    start_time = time.time()
+    bfs_solution = breadth_first_search(initial_state, goal_position)
+    end_time = time.time()
+
+    print("BFS took", end_time - start_time, "seconds")
+
     if dfs_solution:
         print("Found a path with DFS:", dfs_solution)
     else:
         print("No path found with DFS")
+
+    if bfs_solution:
+        print("Found a path with BFS:", bfs_solution)
+    else:
+        print("No path found with BFS")
 
 if __name__ == "__main__":
     main()
