@@ -22,7 +22,7 @@ def main():
 
 
     start_position = (0,0)
-    goal_position = (0,18)
+    goal_position = (9,4)
 
     initial_state = MazeState(maze, start_position)
     start_time = time.time()
