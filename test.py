@@ -18,7 +18,7 @@ def main():
     ]
 
     start_position = (0,0)
-    goal_position = (4,4)
+    goal_position = (9,4)
 
     initial_state = MazeState(maze, start_position)
     dfs_solution = depth_first_search(initial_state, goal_position)
