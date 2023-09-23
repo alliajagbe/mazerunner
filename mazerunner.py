@@ -24,26 +24,3 @@ def moveGen(current_state):
 
 def goalTest(current_state, goal_position):
     return current_state.position == goal_position
-
-def main():
-    maze = [
-        [0,1,0,0,0],
-        [0,1,0,1,0],
-        [0,0,0,0,0],
-        [0,1,1,1,0],
-        [0,0,0,1,0]
-    ]
-
-    start_position = (0,0)
-    goal_position = (4,4)
-
-    initial_state = MazeState(maze, start_position)
-    solution = depth_first_search(initial_state, goal_position)
-
-    if solution:
-        print("Found a path:", solution)
-    else:
-        print("No path found")
-
-if __name__ == "__main__":
-    main()
