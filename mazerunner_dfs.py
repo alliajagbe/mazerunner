@@ -62,3 +62,6 @@ def main():
         print("Found a path:", solution)
     else:
         print("No path found")
+
+if __name__ == "__main__":
+    main()
