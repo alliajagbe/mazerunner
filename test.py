@@ -21,7 +21,7 @@ def main():
 
 
     start_position = (0,0)
-    goal_position = (9,4)
+    goal_position = (8,4)
 
     initial_state = MazeState(maze_best_case, start_position)
 
