@@ -2,6 +2,7 @@ from mazerunner import MazeState
 from dfs import depth_first_search
 from bfs import breadth_first_search
 from bestfs import best_first_search
+import time
 
 def main():
     dfs_worst_case = [
@@ -26,5 +27,24 @@ def main():
         ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0'],
         ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0'],
     ]
+
+    start_position = (0,0)
+    goal_position = (0,19)
+
+    initial_state = MazeState(dfs_worst_case, start_position)
+    start_time = time.time()
+    dfs_solution = depth_first_search(initial_state, goal_position)
+    end_time = time.time()
+
+    print("DFS took", end_time - start_time, "seconds")
+
+    if dfs_solution:
+        print("Found a path with DFS:", dfs_solution)
+    else:
+        print("No path found with DFS")
+
+if __name__ == "__main__":
+    main()
+    
 
 
