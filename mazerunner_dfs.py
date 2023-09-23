@@ -28,3 +28,17 @@ def goalTest(current_state, goal_position):
 
 def depth_first_search(initial_state, goal_position):
     stack = [(initial_state, [])]
+    explored = set()
+
+    while stack:
+        current_state, path = stack.pop()
+        explored.add(current_state.position)
+
+        if goalTest(current_state, goal_position):
+            return path + [current_state.position] # return the path to the goal
+        
+        for neighbour in moveGen(current_state):
+            if neighbour.position not in explored:
+                stack.append((neighbour, path + [current_state.position]))
+
+    return None
