@@ -24,7 +24,7 @@ def main():
     start_position = (0,0)
     goal_position = (0,18)
 
-    initial_state = MazeState(dfs_best_case, start_position)
+    initial_state = MazeState(maze, start_position)
     start_time = time.time()
     dfs_solution = depth_first_search(initial_state, goal_position)
     end_time = time.time()
