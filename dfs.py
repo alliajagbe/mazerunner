@@ -9,7 +9,6 @@ def depth_first_search(initial_state, goal_position):
     while stack:
         current_state, path = stack.pop()
         explored.add(current_state.position)
-        print(explored)
 
         if mazerunner.goalTest(current_state, goal_position):
             return path + [current_state.position]
