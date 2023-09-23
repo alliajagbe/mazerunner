@@ -12,13 +12,13 @@ def moveGen(current_state):
     for dr, dc in moves:
         new_row, new_col = row + dr, col + dc
 
-    if (
-        0 <= new_row < len(current_state.maze) # check if new_row is within the maze
-        and 0 <= new_col < len(current_state.maze[0]) # check if new_col is within the maze
-        and current_state.maze[new_row][new_col] == 0 # check if the new position is not a wall (0 for path, 1 for wall)
-    ):
-        new_position = (new_row, new_col)
-        neighbours.append(MazeState(current_state.maze, new_position))
+        if (
+            0 <= new_row < len(current_state.maze) # check if new_row is within the maze
+            and 0 <= new_col < len(current_state.maze[0]) # check if new_col is within the maze
+            and current_state.maze[new_row][new_col] == 0 # check if the new position is not a wall (0 for path, 1 for wall)
+        ):
+            new_position = (new_row, new_col)
+            neighbours.append(MazeState(current_state.maze, new_position))
 
     return neighbours
 
@@ -35,7 +35,7 @@ def depth_first_search(initial_state, goal_position):
         explored.add(current_state.position)
 
         if goalTest(current_state, goal_position):
-            return path + [current_state.position] # return the path to the goal
+            return path # return the path to the goal
         
         for neighbour in moveGen(current_state):
             if neighbour.position not in explored:
