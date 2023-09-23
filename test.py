@@ -1,5 +1,6 @@
 from mazerunner import MazeState
 from dfs import depth_first_search
+from bfs import breadth_first_search
 
 def main():
     maze = [
@@ -14,12 +15,18 @@ def main():
     goal_position = (4,4)
 
     initial_state = MazeState(maze, start_position)
-    solution = depth_first_search(initial_state, goal_position)
+    dfs_solution = depth_first_search(initial_state, goal_position)
+    bfs_solution = breadth_first_search(initial_state, goal_position)
 
-    if solution:
-        print("Found a path:", solution)
+    if dfs_solution:
+        print("Found a path with DFS:", dfs_solution)
     else:
-        print("No path found")
+        print("No path found with DFS")
+
+    if bfs_solution:
+        print("Found a path with BFS:", bfs_solution)
+    else:
+        print("No path found with BFS")
 
 if __name__ == "__main__":
     main()
