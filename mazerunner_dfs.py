@@ -42,3 +42,12 @@ def depth_first_search(initial_state, goal_position):
                 stack.append((neighbour, path + [current_state.position]))
 
     return None
+
+def main():
+    maze = [
+        [0,1,0,0,0],
+        [0,1,0,1,0],
+        [0,0,0,0,0],
+        [0,1,1,1,0],
+        [0,0,0,1,0]
+    ]
