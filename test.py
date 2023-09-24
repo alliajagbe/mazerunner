@@ -19,8 +19,8 @@ with open("maze.json", "r") as f:
 
 def main():
     maze = maze_file["dfs_best_maze"]
-    start_position = tuple(maze_file["start"])
-    goal_position = tuple(maze_file["end"])
+    start_position = tuple(maze_file["dfs_start"])
+    goal_position = tuple(maze_file["dfs_end"])
 
     initial_state = MazeState(maze, start_position)
 
@@ -66,27 +66,36 @@ def main():
         memory_bestfs.append(end_memory_usage - initial_memory_usage)
 
     
-    print("Average time for DFS:", sum(time_dfs)/len(time_dfs))
-    print("Average number of states explored with DFS:", sum(states_dfs)/len(states_dfs))
-    print("Average memory usage for DFS:", sum(memory_dfs)/len(memory_dfs), "bytes.")
+    avg_time_dfs = sum(time_dfs)/len(time_dfs)
+    print("Average time for DFS:", avg_time_dfs)
+    avg_states_dfs = sum(states_dfs)/len(states_dfs)
+    print("Average number of states explored with DFS:", avg_states_dfs)
+    avg_memory_dfs = sum(memory_dfs)/len(memory_dfs)
+    print("Average memory usage for DFS:", avg_memory_dfs, "bytes.")
 
     if dfs_solution:
         formatted_path_printing(dfs_solution)
     else:
         print("No path found with DFS")
 
-    print("Average time for BFS:", sum(time_bfs)/len(time_bfs))
-    print("Average number of states explored with BFS:", sum(states_bfs)/len(states_bfs))
-    print("Average memory usage for BFS:", sum(memory_bfs)/len(memory_bfs), "bytes.")
+    avg_time_bfs = sum(time_bfs)/len(time_bfs)
+    print("Average time for BFS:", avg_time_bfs)
+    avg_states_bfs = sum(states_bfs)/len(states_bfs)
+    print("Average number of states explored with BFS:", avg_states_bfs)
+    avg_memory_bfs = sum(memory_bfs)/len(memory_bfs)
+    print("Average memory usage for BFS:", avg_memory_bfs, "bytes.")
     
     if bfs_solution:
         formatted_path_printing(bfs_solution)
     else:
         print("No path found with BFS")
 
-    print("Average time for BestFS:", sum(time_bestfs)/len(time_bestfs))
-    print("Average number of states explored with BestFS:", sum(states_bestfs)/len(states_bestfs))
-    print("Average memory usage for BestFS:", sum(memory_bestfs)/len(memory_bestfs), "bytes.")
+    avg_time_bestfs = sum(time_bestfs)/len(time_bestfs)
+    print("Average time for BestFS:", avg_time_bestfs)
+    avg_states_bestfs = sum(states_bestfs)/len(states_bestfs)
+    print("Average number of states explored with BestFS:", avg_states_bestfs)
+    avg_memory_bestfs = sum(memory_bestfs)/len(memory_bestfs)
+    print("Average memory usage for BestFS:", avg_memory_bestfs, "bytes.")
     
     if bestfs_solution:
         formatted_path_printing(bestfs_solution)

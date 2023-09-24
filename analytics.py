@@ -1,4 +1,5 @@
 import psutil
+import matplotlib.pyplot as plt
 
 def get_memory_usage():
     process = psutil.Process()
