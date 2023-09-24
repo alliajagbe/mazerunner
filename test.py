@@ -3,27 +3,17 @@ from dfs import depth_first_search
 from bfs import breadth_first_search
 from bestfs import best_first_search
 import time
+import json
+
+with open("maze.json", "r") as f:
+    maze_file = json.load(f)
 
 def main():
-    maze_best_case = [
-        [0, 0, 0, 0, 0],
-        [0, 1, 1, 0, 0],
-        [0, 0, 1, 0, 0],
-        [0, 0, 1, 1, 1],
-        [0, 0, 0, 0, 0],
-        [0, 1, 1, 0, 0],
-        [0, 1, 1, 1, 0],
-        [0, 0, 0, 1, 0],
-        [0, 1, 1, 1, 0],
-        [0, 0, 0, 0, 0]
-    ]
+    maze = maze_file["maze"]
+    start_position = tuple(maze_file["start"])
+    goal_position = tuple(maze_file["end"])
 
-
-
-    start_position = (0,0)
-    goal_position = (9,4)
-
-    initial_state = MazeState(maze_best_case, start_position)
+    initial_state = MazeState(maze, start_position)
 
     # taking an average of 10 runs
     time_dfs = []
@@ -59,7 +49,10 @@ def main():
 
     if dfs_solution:
         for i in range(len(dfs_solution)):
-            print(dfs_solution[i], end=" ")
+            if i == len(dfs_solution) - 1:
+                print(dfs_solution[i])
+            else:
+                print(f"{dfs_solution[i]} =>", end=" ")
         print()
     else:
         print("No path found with DFS")
@@ -69,7 +62,10 @@ def main():
     
     if bfs_solution:
         for i in range(len(bfs_solution)):
-            print(bfs_solution[i], end=" ")
+            if i == len(bfs_solution) - 1:
+                print(bfs_solution[i])
+            else:
+                print(f"{bfs_solution[i]} =>", end=" ")
         print()
     else:
         print("No path found with BFS")
@@ -79,7 +75,10 @@ def main():
     
     if bestfs_solution:
         for i in range(len(bestfs_solution)):
-            print(bestfs_solution[i], end=" ")
+            if i == len(bestfs_solution) - 1:
+                print(bestfs_solution[i])
+            else:
+                print(f"{bestfs_solution[i]} =>", end=" ")
         print()
     else:
         print("No path found with BestFS")
