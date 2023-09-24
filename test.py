@@ -36,7 +36,7 @@ def main():
         states_dfs.append(no_of_states_explored)
 
     print("Average time for DFS:", sum(time_dfs)/len(time_dfs))
-    print("Average number of states explored with DFS:", sum(no_of_states_explored)/len(no_of_states_explored))
+    print("Average number of states explored with DFS:", sum(states_dfs)/len(states_dfs))
     print("Path found with DFS:", dfs_solution)
 
 
