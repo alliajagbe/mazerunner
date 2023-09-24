@@ -17,4 +17,6 @@ def depth_first_search(initial_state, goal_position):
             if neighbour.position not in explored:
                 stack.append((neighbour, path + [current_state.position]))
 
+    print("DFS explored a total of",len(explored),"states.")
+
     return None
