@@ -21,7 +21,7 @@ with open("maze.json", "r") as f:
 
 
 def input_fetcher():
-    maze_selector = input("Enter maze number (1 or 2 or 3 for the mazes in the config file. Enter 4 for a random maze) :")
+    maze_selector = input("Enter maze number (1 - 4 for the mazes in the config file. Enter 5 for a random maze) :")
     if maze_selector == "1":
         maze = maze_file["maze1"]
         start_position = tuple(maze_file["start1"])
@@ -35,6 +35,10 @@ def input_fetcher():
         start_position = tuple(maze_file["start3"])
         goal_position = tuple(maze_file["end3"])
     elif maze_selector == "4":
+        maze = maze_file["maze4"]
+        start_position = tuple(maze_file["start4"])
+        goal_position = tuple(maze_file["end4"])
+    elif maze_selector == "5":
         rows = int(input("Enter number of rows: "))
         cols = int(input("Enter number of columns: "))
         num_walls = int(input("Enter number of walls: "))
@@ -48,9 +52,9 @@ def input_fetcher():
             print("Invalid goal position. Please try again.")
             goal_position = tuple(input("Enter goal position (row, col): ").split(","))
 
-        for i in range(rows):
-            for j in range(cols):
-                maze[i][j] = int(maze[i][j])
+        start_position = int(start_position[0]), int(start_position[1])
+        goal_position = int(goal_position[0]), int(goal_position[1])
+
     else:
         print("Invalid input. Please try again.")
     
