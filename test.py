@@ -68,7 +68,7 @@ def main():
     
     print("Average time for DFS:", sum(time_dfs)/len(time_dfs))
     print("Average number of states explored with DFS:", sum(states_dfs)/len(states_dfs))
-    print("Average memory usage for DFS:", sum(memory_dfs)/len(memory_dfs))
+    print("Average memory usage for DFS:", sum(memory_dfs)/len(memory_dfs), "bytes.")
 
     if dfs_solution:
         formatted_path_printing(dfs_solution)
@@ -77,7 +77,7 @@ def main():
 
     print("Average time for BFS:", sum(time_bfs)/len(time_bfs))
     print("Average number of states explored with BFS:", sum(states_bfs)/len(states_bfs))
-    print("Average memory usage for BFS:", sum(memory_bfs)/len(memory_bfs))
+    print("Average memory usage for BFS:", sum(memory_bfs)/len(memory_bfs), "bytes.")
     
     if bfs_solution:
         formatted_path_printing(bfs_solution)
@@ -86,7 +86,7 @@ def main():
 
     print("Average time for BestFS:", sum(time_bestfs)/len(time_bestfs))
     print("Average number of states explored with BestFS:", sum(states_bestfs)/len(states_bestfs))
-    print("Average memory usage for BestFS:", sum(memory_bestfs)/len(memory_bestfs))
+    print("Average memory usage for BestFS:", sum(memory_bestfs)/len(memory_bestfs), "bytes.")
     
     if bestfs_solution:
         formatted_path_printing(bestfs_solution)
