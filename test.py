@@ -47,6 +47,10 @@ def input_fetcher():
         if maze[int(goal_position[0])][int(goal_position[1])] == 1:
             print("Invalid goal position. Please try again.")
             goal_position = tuple(input("Enter goal position (row, col): ").split(","))
+
+        for i in range(rows):
+            for j in range(cols):
+                maze[i][j] = int(maze[i][j])
     else:
         print("Invalid input. Please try again.")
     
@@ -74,36 +78,47 @@ def main():
     bestfs_path_lengths = []
 
     for i in range(10):
-        # initial_memory_usage = get_memory_usage()
         tracemalloc.start()
         start_time_dfs = time.perf_counter()
-        dfs_solution, no_of_states_explored_dfs, dfs_path_length = depth_first_search(initial_state, goal_position)
+        try:
+            dfs_solution, no_of_states_explored_dfs, dfs_path_length = depth_first_search(initial_state, goal_position)
+        except:
+            dfs_solution = None
+            no_of_states_explored_dfs = 0
+            dfs_path_length = 0
         end_time_dfs = time.perf_counter()
-        # end_memory_usage = get_memory_usage()
         time_dfs.append(end_time_dfs - start_time_dfs)
         states_dfs.append(no_of_states_explored_dfs)
         memory_dfs.append(tracemalloc.get_traced_memory()[0])
         dfs_path_lengths.append(dfs_path_length)
         tracemalloc.stop()
 
-        # initial_memory_usage = get_memory_usage()
+
         tracemalloc.start()
         start_time_bfs = time.perf_counter()
-        bfs_solution, no_of_states_explored_bfs, bfs_path_length = breadth_first_search(initial_state, goal_position)
+        try:
+            bfs_solution, no_of_states_explored_bfs, bfs_path_length = breadth_first_search(initial_state, goal_position)
+        except:
+            bfs_solution = None
+            no_of_states_explored_bfs = 0
+            bfs_path_length = 0
         end_time_bfs = time.perf_counter()
-        # end_memory_usage = get_memory_usage()
         time_bfs.append(end_time_bfs - start_time_bfs)
         states_bfs.append(no_of_states_explored_bfs)
         memory_bfs.append(tracemalloc.get_traced_memory()[0])
         bfs_path_lengths.append(bfs_path_length)
         tracemalloc.stop()
 
-        #initial_memory_usage = get_memory_usage()
+
         tracemalloc.start()
         start_time_bestfs = time.perf_counter()
-        bestfs_solution, no_of_states_explored_bestfs, bestfs_path_length = best_first_search(initial_state, goal_position)
+        try:
+            bestfs_solution, no_of_states_explored_bestfs, bestfs_path_length = best_first_search(initial_state, goal_position)
+        except:
+            bestfs_solution = None
+            no_of_states_explored_bestfs = 0
+            bestfs_path_length = 0
         end_time_bestfs = time.perf_counter()
-        # end_memory_usage = get_memory_usage()
         time_bestfs.append(end_time_bestfs - start_time_bestfs)
         states_bestfs.append(no_of_states_explored_bestfs)
         memory_bestfs.append(tracemalloc.get_traced_memory()[0])

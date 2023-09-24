@@ -1,7 +1,7 @@
 class MazeState:
     def __init__(self, maze, position):
         self.maze = maze
-        self.position = position
+        self.position = int(position[0]), int(position[1])
 
 def moveGen(current_state):
     neighbours = []
