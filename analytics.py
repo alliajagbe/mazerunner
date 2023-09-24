@@ -53,7 +53,27 @@ def visualizer():
     plt.ylabel("Path length")
     plt.show()
 
-    # Plotting maze
+    # showing all plots at once
+    fig, axs = plt.subplots(2, 2)
+    fig.suptitle("Comparing algorithms")
+    axs[0, 0].bar(labels, time)
+    axs[0, 0].set_title("Average time for each algorithm")
+    axs[0, 0].set_xlabel("Algorithm")
+    axs[0, 0].set_ylabel("Time (s)")
+    axs[0, 1].bar(labels, states, color="orange")
+    axs[0, 1].set_title("Average number of states explored for each algorithm")
+    axs[0, 1].set_xlabel("Algorithm")
+    axs[0, 1].set_ylabel("Number of states explored")
+    axs[1, 0].bar(labels, memory, color="green")
+    axs[1, 0].set_title("Average memory usage for each algorithm")
+    axs[1, 0].set_xlabel("Algorithm")
+    axs[1, 0].set_ylabel("Memory (bytes)")
+    axs[1, 1].bar(labels, path_length, color="red")
+    axs[1, 1].set_title("Average path length for each algorithm")
+    axs[1, 1].set_xlabel("Algorithm")
+    axs[1, 1].set_ylabel("Path length")
+    plt.show()
+
     path_visualizer(maze, dfs_solution)
     path_visualizer(maze, bfs_solution)
     path_visualizer(maze, bestfs_solution)
