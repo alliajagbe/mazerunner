@@ -34,6 +34,10 @@ def input_fetcher():
         maze = maze_file["maze2"]
         start_position = tuple(maze_file["start2"])
         goal_position = tuple(maze_file["end2"])
+    elif maze_selector == "3":
+        maze = maze_file["maze3"]
+        start_position = tuple(maze_file["start3"])
+        goal_position = tuple(maze_file["end3"])
     else:
         print("Invalid input. Please try again.")
     

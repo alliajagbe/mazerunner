@@ -9,8 +9,8 @@ def moveGen(current_state):
     row, col = current_state.position
     moves = [(0,1), (0,-1), (1,0), (-1,0)]
 
-    for dr, dc in moves:
-        new_row, new_col = row + dr, col + dc
+    for row_change, column_change in moves:
+        new_row, new_col = row + row_change, col + column_change
 
         if (
             0 <= new_row < len(current_state.maze) # check if new_row is within the maze
