@@ -11,7 +11,7 @@ def depth_first_search(initial_state, goal_position):
         explored.add(current_state.position)
 
         if mazerunner.goalTest(current_state, goal_position):
-            return path + [current_state.position], len(explored)
+            return path + [current_state.position], len(explored), len(path + [current_state.position])
         
         for neighbour in mazerunner.moveGen(current_state):
             if neighbour.position not in explored:
