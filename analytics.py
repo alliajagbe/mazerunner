@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from test import main
 
-def path_visualizer(maze, path):
+def path_visualizer(maze, path, title):
     maze_copy = maze.copy()
 
     for row, col in path:
@@ -21,6 +21,8 @@ def path_visualizer(maze, path):
             continue
         else:
             plt.annotate(i, (col, row), color="white", weight="bold", fontsize=16, ha="center", va="center")
+
+    plt.title(title)
 
     plt.show()
 
@@ -87,8 +89,8 @@ def visualizer():
     plt.tight_layout()
     plt.show()
 
-    path_visualizer(maze, dfs_solution)
-    path_visualizer(maze, bfs_solution)
-    path_visualizer(maze, bestfs_solution)
+    path_visualizer(maze, dfs_solution, "Depth First Search Solution")
+    path_visualizer(maze, bfs_solution, "Breadth First Search Solution")
+    path_visualizer(maze, bestfs_solution, "Best First Search Solution")
 
 visualizer()
