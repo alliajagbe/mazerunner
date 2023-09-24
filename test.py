@@ -2,14 +2,11 @@ from mazerunner import MazeState
 from dfs import depth_first_search
 from bfs import breadth_first_search
 from bestfs import best_first_search
+from mazegenerator import generate_random_maze
 import time
 import json
-import tracemalloc
+import tracemalloc\
 
-def get_memory_usage():
-    process = psutil.Process()
-    memory_info = process.memory_info()
-    return memory_info.rss
 
 def formatted_path_printing(path):
     for i in range(len(path)):
@@ -24,7 +21,7 @@ with open("maze.json", "r") as f:
 
 
 def input_fetcher():
-    maze_selector = input("Enter maze number (1 or 2):")
+    maze_selector = input("Enter maze number (1 or 2 or 3 for the mazes in the config file. Enter 4 for a random maze) :")
     if maze_selector == "1":
         maze = maze_file["maze1"]
         start_position = tuple(maze_file["start1"])
@@ -37,6 +34,19 @@ def input_fetcher():
         maze = maze_file["maze3"]
         start_position = tuple(maze_file["start3"])
         goal_position = tuple(maze_file["end3"])
+    elif maze_selector == "4":
+        rows = int(input("Enter number of rows: "))
+        cols = int(input("Enter number of columns: "))
+        num_walls = int(input("Enter number of walls: "))
+        maze = generate_random_maze(rows, cols, num_walls)
+        start_position = tuple(input("Enter start position (row, col): ").split(","))
+        if maze[int(start_position[0])][int(start_position[1])] == 1:
+            print("Invalid start position. Please try again.")
+            start_position = tuple(input("Enter start position (row, col): ").split(","))
+        goal_position = tuple(input("Enter goal position (row, col): ").split(","))
+        if maze[int(goal_position[0])][int(goal_position[1])] == 1:
+            print("Invalid goal position. Please try again.")
+            goal_position = tuple(input("Enter goal position (row, col): ").split(","))
     else:
         print("Invalid input. Please try again.")
     
