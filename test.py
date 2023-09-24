@@ -84,24 +84,5 @@ def main():
     else:
         print("No path found with BestFS")
 
-
-
-
-
-    if dfs_solution:
-        print("Found a path with DFS:", dfs_solution)
-    else:
-        print("No path found with DFS")
-
-    if bfs_solution:
-        print("Found a path with BFS:", bfs_solution)
-    else:
-        print("No path found with BFS")
-
-    if bestfs_solution:
-        print("Found a path with BestFS:", bestfs_solution)
-    else:
-        print("No path found with BestFS")
-
 if __name__ == "__main__":
     main()
