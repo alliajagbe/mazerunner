@@ -4,7 +4,12 @@ from bfs import breadth_first_search
 from bestfs import best_first_search
 import time
 import json
-from analytics import get_memory_usage
+import psutil
+
+def get_memory_usage():
+    process = psutil.Process()
+    memory_info = process.memory_info()
+    return memory_info.rss
 
 def formatted_path_printing(path):
     for i in range(len(path)):
