@@ -18,7 +18,7 @@ with open("maze.json", "r") as f:
     maze_file = json.load(f)
 
 def main():
-    maze = maze_file["maze"]
+    maze = maze_file["dfs_best_maze"]
     start_position = tuple(maze_file["start"])
     goal_position = tuple(maze_file["end"])
 
