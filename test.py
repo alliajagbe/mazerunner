@@ -25,20 +25,20 @@ def main():
 
     initial_state = MazeState(maze_best_case, start_position)
 
-    start_time = time.time()
+    start_time = time.perf_counter()
     dfs_solution = depth_first_search(initial_state, goal_position)
-    end_time = time.time()
+    end_time = time.perf_counter()
     print("DFS took", end_time - start_time, "seconds")
 
 
-    start_time = time.time()
+    start_time = time.perf_counter()
     bfs_solution = breadth_first_search(initial_state, goal_position)
-    end_time = time.time()
+    end_time = time.perf_counter()
     print("BFS took", end_time - start_time, "seconds")
 
-    start_time = time.time()
+    start_time = time.perf_counter()
     bestfs_solution = best_first_search(initial_state, goal_position)
-    end_time = time.time()
+    end_time = time.perf_counter()
     print("BestFS took", end_time - start_time, "seconds")
 
 
