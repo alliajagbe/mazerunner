@@ -4,7 +4,6 @@ from bfs import breadth_first_search
 from bestfs import best_first_search
 import time
 import json
-import psutil
 import tracemalloc
 
 def get_memory_usage():
