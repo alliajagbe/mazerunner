@@ -11,12 +11,10 @@ def depth_first_search(initial_state, goal_position):
         explored.add(current_state.position)
 
         if mazerunner.goalTest(current_state, goal_position):
-            return path + [current_state.position]
+            return path + [current_state.position], len(explored)
         
         for neighbour in mazerunner.moveGen(current_state):
             if neighbour.position not in explored:
                 stack.append((neighbour, path + [current_state.position]))
-
-    print("DFS explored a total of",len(explored),"states.")
 
     return None

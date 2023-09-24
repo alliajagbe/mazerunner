@@ -21,24 +21,27 @@ def main():
 
 
     start_position = (0,0)
-    goal_position = (8,4)
+    goal_position = (9,4)
 
     initial_state = MazeState(maze_best_case, start_position)
 
     start_time = time.perf_counter()
-    dfs_solution = depth_first_search(initial_state, goal_position)
+    dfs_solution, no_of_states_explored = depth_first_search(initial_state, goal_position)
+    print("Number of states explored with DFS:", no_of_states_explored)
     end_time = time.perf_counter()
     print("DFS took", end_time - start_time, "seconds")
 
 
     start_time = time.perf_counter()
-    bfs_solution = breadth_first_search(initial_state, goal_position)
+    bfs_solution, no_of_states_explored = breadth_first_search(initial_state, goal_position)
     end_time = time.perf_counter()
+    print("Number of states explored with BFS:", no_of_states_explored)
     print("BFS took", end_time - start_time, "seconds")
 
     start_time = time.perf_counter()
-    bestfs_solution = best_first_search(initial_state, goal_position)
+    bestfs_solution, no_of_states_explored = best_first_search(initial_state, goal_position)
     end_time = time.perf_counter()
+    print("Number of states explored with BestFS:", no_of_states_explored)
     print("BestFS took", end_time - start_time, "seconds")
 
 
