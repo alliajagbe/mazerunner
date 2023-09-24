@@ -42,4 +42,35 @@ def visualizer():
     plt.ylabel("Path length")
     plt.show()
 
+    # Plotting path
+    if dfs_solution:
+        dfs_path = dfs_solution
+        plt.plot(dfs_path)
+        plt.title("Path found with DFS")
+        plt.xlabel("x")
+        plt.ylabel("y")
+        plt.show()
+    else:
+        print("No path found with DFS")
+
+    if bfs_solution:
+        bfs_path = bfs_solution
+        plt.plot(bfs_path)
+        plt.title("Path found with BFS")
+        plt.xlabel("x")
+        plt.ylabel("y")
+        plt.show()
+    else:
+        print("No path found with BFS")
+
+    if bestfs_solution:
+        bestfs_path = bestfs_solution
+        plt.plot(bestfs_path)
+        plt.title("Path found with BestFS")
+        plt.xlabel("x")
+        plt.ylabel("y")
+        plt.show()
+    else:
+        print("No path found with BestFS")
+
 visualizer()
