@@ -5,7 +5,7 @@ from bestfs import best_first_search
 from mazegenerator import generate_random_maze
 import time
 import json
-import tracemalloc\
+import tracemalloc
 
 
 def formatted_path_printing(path):
