@@ -15,4 +15,22 @@ def visualizer():
     plt.ylabel("Time (s)")
     plt.show()
 
+    # Plotting states
+    states = [avg_states_dfs, avg_states_bfs, avg_states_bestfs]
+    labels = ["DFS", "BFS", "BestFS"]
+    plt.bar(labels, states)
+    plt.title("Average number of states explored for each algorithm")
+    plt.xlabel("Algorithm")
+    plt.ylabel("Number of states explored")
+    plt.show()
+
+    # Plotting memory
+    memory = [avg_memory_dfs, avg_memory_bfs, avg_memory_bestfs]
+    labels = ["DFS", "BFS", "BestFS"]
+    plt.bar(labels, memory)
+    plt.title("Average memory usage for each algorithm")
+    plt.xlabel("Algorithm")
+    plt.ylabel("Memory (bytes)")
+    plt.show()
+
 visualizer()
