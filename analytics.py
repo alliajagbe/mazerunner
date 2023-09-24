@@ -10,6 +10,18 @@ def path_visualizer(maze, path):
     cmap = plt.matplotlib.colors.ListedColormap(["black", "white", "red", "green"])
 
     plt.matshow(maze_copy, cmap=cmap)
+
+    # annotate start and end positions
+    plt.annotate("Start", (path[0][1], path[0][0]), color="white", weight="bold", fontsize=16, ha="center", va="center")
+    plt.annotate("End", (path[-1][1], path[-1][0]), color="white", weight="bold", fontsize=16, ha="center", va="center")
+
+    # annotate path taken
+    for i, (row, col) in enumerate(path):
+        if i == 0 or i == len(path) - 1:
+            continue
+        else:
+            plt.annotate(i, (col, row), color="white", weight="bold", fontsize=16, ha="center", va="center")
+
     plt.show()
 
 
@@ -72,6 +84,7 @@ def visualizer():
     axs[1, 1].set_title("Average path length for each algorithm")
     axs[1, 1].set_xlabel("Algorithm")
     axs[1, 1].set_ylabel("Path length")
+    plt.tight_layout()
     plt.show()
 
     path_visualizer(maze, dfs_solution)
