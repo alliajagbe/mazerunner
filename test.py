@@ -24,9 +24,9 @@ with open("maze.json", "r") as f:
     maze_file = json.load(f)
 
 def main():
-    maze = maze_file["bfs_best_maze"]
-    start_position = tuple(maze_file["bfs_start"])
-    goal_position = tuple(maze_file["bfs_end"])
+    maze = maze_file["maze2"]
+    start_position = tuple(maze_file["start2"])
+    goal_position = tuple(maze_file["end2"])
 
     initial_state = MazeState(maze, start_position)
 
