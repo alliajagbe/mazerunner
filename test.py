@@ -5,6 +5,14 @@ from bestfs import best_first_search
 import time
 import json
 
+def formatted_path_printing(path):
+    for i in range(len(path)):
+        if i == len(path) - 1:
+            print(path[i])
+        else:
+            print(f"{path[i]} =>", end=" ")
+    print()
+
 with open("maze.json", "r") as f:
     maze_file = json.load(f)
 
@@ -24,6 +32,7 @@ def main():
 
     time_bestfs = []
     states_bestfs = []
+    
     for i in range(10):
         start_time_dfs = time.perf_counter()
         dfs_solution, no_of_states_explored_dfs = depth_first_search(initial_state, goal_position)
@@ -48,12 +57,7 @@ def main():
     print("Average number of states explored with DFS:", sum(states_dfs)/len(states_dfs))
 
     if dfs_solution:
-        for i in range(len(dfs_solution)):
-            if i == len(dfs_solution) - 1:
-                print(dfs_solution[i])
-            else:
-                print(f"{dfs_solution[i]} =>", end=" ")
-        print()
+        formatted_path_printing(dfs_solution)
     else:
         print("No path found with DFS")
 
@@ -61,12 +65,7 @@ def main():
     print("Average number of states explored with BFS:", sum(states_bfs)/len(states_bfs))
     
     if bfs_solution:
-        for i in range(len(bfs_solution)):
-            if i == len(bfs_solution) - 1:
-                print(bfs_solution[i])
-            else:
-                print(f"{bfs_solution[i]} =>", end=" ")
-        print()
+        formatted_path_printing(bfs_solution)
     else:
         print("No path found with BFS")
 
@@ -74,12 +73,7 @@ def main():
     print("Average number of states explored with BestFS:", sum(states_bestfs)/len(states_bestfs))
     
     if bestfs_solution:
-        for i in range(len(bestfs_solution)):
-            if i == len(bestfs_solution) - 1:
-                print(bestfs_solution[i])
-            else:
-                print(f"{bestfs_solution[i]} =>", end=" ")
-        print()
+        formatted_path_printing(bestfs_solution)
     else:
         print("No path found with BestFS")
 
