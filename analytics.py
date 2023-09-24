@@ -4,7 +4,7 @@ from test import main
 
 
 def visualizer():
-    avg_time_dfs, avg_states_dfs, avg_memory_dfs, avg_time_bfs, avg_states_bfs, avg_memory_bfs, avg_time_bestfs, avg_states_bestfs, avg_memory_bestfs, dfs_solution, bfs_solution, bestfs_solution = main()
+    avg_time_dfs, avg_states_dfs, avg_memory_dfs, avg_path_length_dfs, avg_time_bfs, avg_states_bfs, avg_memory_bfs, avg_path_length_bfs, avg_time_bestfs, avg_states_bestfs, avg_memory_bestfs, avg_path_length_bestfs, dfs_solution, bfs_solution, bestfs_solution = main()
 
     # Plotting time
     time = [avg_time_dfs, avg_time_bfs, avg_time_bestfs]
@@ -31,6 +31,15 @@ def visualizer():
     plt.title("Average memory usage for each algorithm")
     plt.xlabel("Algorithm")
     plt.ylabel("Memory (bytes)")
+    plt.show()
+
+    # Plotting path length
+    path_length = [avg_path_length_dfs, avg_path_length_bfs, avg_path_length_bestfs]
+    labels = ["DFS", "BFS", "BestFS"]
+    plt.bar(labels, path_length)
+    plt.title("Average path length for each algorithm")
+    plt.xlabel("Algorithm")
+    plt.ylabel("Path length")
     plt.show()
 
 visualizer()
