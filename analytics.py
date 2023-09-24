@@ -1,6 +1,17 @@
 import matplotlib.pyplot as plt
 from test import main
 
+def path_visualizer(maze, path):
+    maze_copy = maze.copy()
+
+    for row, col in path:
+        maze_copy[row][col] = 2
+
+    cmap = plt.matplotlib.colors.ListedColormap(["black", "white", "green", "red"])
+
+    plt.matshow(maze_copy, cmap=cmap)
+    plt.show()
+
 
 
 def visualizer():
