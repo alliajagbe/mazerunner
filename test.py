@@ -25,11 +25,19 @@ def main():
 
     initial_state = MazeState(maze_best_case, start_position)
 
-    start_time = time.perf_counter()
-    dfs_solution, no_of_states_explored = depth_first_search(initial_state, goal_position)
-    print("Number of states explored with DFS:", no_of_states_explored)
-    end_time = time.perf_counter()
-    print("DFS took", end_time - start_time, "seconds")
+    # taking an average of 10 runs
+    time_dfs = []
+    states_dfs = []
+    for i in range(10):
+        start_time = time.perf_counter()
+        dfs_solution, no_of_states_explored = depth_first_search(initial_state, goal_position)
+        end_time = time.perf_counter()
+        time_dfs.append(end_time - start_time)
+        states_dfs.append(no_of_states_explored)
+
+    print("Average time for DFS:", sum(time_dfs)/len(time_dfs))
+    print("Average number of states explored with DFS:", sum(no_of_states_explored)/len(no_of_states_explored))
+    print("Path found with DFS:", dfs_solution)
 
 
     start_time = time.perf_counter()
