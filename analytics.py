@@ -18,7 +18,7 @@ def visualizer():
     # Plotting states
     states = [avg_states_dfs, avg_states_bfs, avg_states_bestfs]
     labels = ["DFS", "BFS", "BestFS"]
-    plt.bar(labels, states)
+    plt.bar(labels, states, color="orange")
     plt.title("Average number of states explored for each algorithm")
     plt.xlabel("Algorithm")
     plt.ylabel("Number of states explored")
@@ -27,7 +27,7 @@ def visualizer():
     # Plotting memory
     memory = [avg_memory_dfs, avg_memory_bfs, avg_memory_bestfs]
     labels = ["DFS", "BFS", "BestFS"]
-    plt.bar(labels, memory)
+    plt.bar(labels, memory, color="green")
     plt.title("Average memory usage for each algorithm")
     plt.xlabel("Algorithm")
     plt.ylabel("Memory (bytes)")
@@ -36,7 +36,7 @@ def visualizer():
     # Plotting path length
     path_length = [avg_path_length_dfs, avg_path_length_bfs, avg_path_length_bestfs]
     labels = ["DFS", "BFS", "BestFS"]
-    plt.bar(labels, path_length)
+    plt.bar(labels, path_length, color="red")
     plt.title("Average path length for each algorithm")
     plt.xlabel("Algorithm")
     plt.ylabel("Path length")

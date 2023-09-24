@@ -23,10 +23,24 @@ def formatted_path_printing(path):
 with open("maze.json", "r") as f:
     maze_file = json.load(f)
 
+
+def input_fetcher():
+    maze_selector = input("Enter maze number (1 or 2):")
+    if maze_selector == "1":
+        maze = maze_file["maze1"]
+        start_position = tuple(maze_file["start1"])
+        goal_position = tuple(maze_file["end1"])
+    elif maze_selector == "2":
+        maze = maze_file["maze2"]
+        start_position = tuple(maze_file["start2"])
+        goal_position = tuple(maze_file["end2"])
+    else:
+        print("Invalid input. Please try again.")
+    
+    return maze, start_position, goal_position
+
 def main():
-    maze = maze_file["maze2"]
-    start_position = tuple(maze_file["start2"])
-    goal_position = tuple(maze_file["end2"])
+    maze, start_position, goal_position = input_fetcher()
 
     initial_state = MazeState(maze, start_position)
 
